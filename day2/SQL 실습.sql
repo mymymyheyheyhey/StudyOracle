@@ -55,3 +55,13 @@ WHERE sal BETWEEN 1600 AND 2975;
 SELECT ename, job, sal, sal * 12 AS ANNSAL
 FROM emp
 WHERE ename LIKE '__RD'; --%, __RD
+
+--NULL, 함수명 NVL()
+SELECT ename, job, sal, comm
+FROM emp
+WHERE comm IS NOT NULL;
+
+--집합
+SELECT empno, ename, job FROM emp
+UNION
+SELECT deptno, dname, loc FROM dept;
