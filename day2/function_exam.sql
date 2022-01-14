@@ -95,3 +95,11 @@ SELECT deptno, NVL(job, 'гу╟Х') "JOB",
 ROUND(AVG(sal), 2) "AVG(SAL)", MAX(sal), SUM(sal), COUNT(*)
 FROM emp
 GROUP BY ROLLUP(deptno, job);
+
+
+SELECT
+deptno, job,
+ROUND(AVG(NVL(sal, 0)), 2) "AVG_SAL"
+FROM emp
+GROUP BY ROLLUP(deptno, job)
+HAVING ROUND(AVG(NVL(sal, 0)), 2) > 2000;
